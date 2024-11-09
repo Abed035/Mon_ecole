@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Bienvenue sur le site éducatif</h1>
+<h2>Choisissez une série :</h2>
+<ul>
+    {% for serie in series %}
+    <li><a href="{{ url_for('serie_detail', serie_id=serie['id']) }}">{{ serie['nom'] }}</a></li>
+    {% endfor %}
+</ul>
+
+
+{% endblock %}
+

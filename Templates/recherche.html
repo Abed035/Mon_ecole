@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>Résultats de la recherche pour "{{ query }}"</h1>
+
+{% if resultats %}
+    <ul>
+        {% for cours in resultats %}
+        <li>
+            <h3>{{ cours['titre'] }}</h3>
+            <p>{{ cours['description'] }}</p>
+            <img src="{{ url_for('static', filename='images/' ~ cours['photo']) }}" alt="Image du cours">
+            <a href="{{ url_for('download_file', filename=cours['pdf']) }}">Télécharger le PDF</a>
+
+            <!-- Bouton pour supprimer l'article -->
+            <form method="POST" action="{{ url_for('supprimer_cours', cours_id=cours['id']) }}">
+                <button type="submit" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet article ?');">Supprimer</button>
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Aucun résultat trouvé pour "{{ query }}".</p>
+{% endif %}
+
+<a href="{{ url_for('accueil') }}">Retour à l'accueil</a>
+{% endblock %}

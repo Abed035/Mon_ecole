@@ -1,0 +1,141 @@
+/* Styles de base pour le corps de la page */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+/* Style pour le conteneur principal */
+.container {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Style pour les titres des séries */
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+h2 {
+    color: #2c3e50;
+    font-size: 24px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+}
+
+/* Style pour la liste des cours */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    background-color: #fafafa;
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Style pour les titres des cours */
+ul li h3 {
+    color: #2980b9;
+    margin-bottom: 10px;
+    flex: 1 1 100%;
+    font-size: 20px;
+}
+
+/* Style pour les descriptions des cours */
+ul li p {
+    color: #555;
+    margin-bottom: 10px;
+    flex: 1 1 100%;
+}
+
+/* Style pour les images */
+ul li img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-right: 20px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+/* Style pour le bouton de téléchargement */
+ul li a {
+    text-decoration: none;
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-right: 15px;
+    transition: background-color 0.3s ease;
+}
+
+ul li a:hover {
+    background-color: #2980b9;
+}
+
+/* Style pour le bouton de suppression */
+ul li form {
+    display: inline-block;
+}
+
+ul li form button {
+    background-color: #e74c3c;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+ul li form button:hover {
+    background-color: #c0392b;
+}
+
+/* Styles pour les sections vides (quand il n'y a pas de cours) */
+p {
+    font-size: 16px;
+    color: #7f8c8d;
+    text-align: center;
+}
+
+/* Lien de retour à l'accueil */
+a {
+    display: inline-block;
+    margin-top: 20px;
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Style pour les petits écrans */
+@media (max-width: 768px) {
+    ul li {
+        flex-direction: column;
+    }
+    
+    ul li img {
+        margin-bottom: 15px;
+        width: 100%;
+        height: auto;
+    }
+}

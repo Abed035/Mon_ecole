@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Ajouter un nouveau cours</h2>
+<form method="POST" enctype="multipart/form-data">
+    <label for="titre">Titre du cours :</label>
+    <input type="text" name="titre" required>
+
+    <label for="description">Description :</label>
+    <textarea name="description" required></textarea>
+
+    <label for="type_page">Ajouter à :</label>
+    <select name="type_page" id="type_page" required>
+        <option value="serie">Série</option>
+        <option value="universite">Université</option>
+    </select>
+
+    <div id="serie_section">
+        <label for="serie">Sélectionnez la série :</label>
+        <select name="serie">
+            {% for serie in series %}
+            <option value="{{ serie['id'] }}">{{ serie['nom'] }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <label for="photo">Télécharger une photo :</label>
+    <input type="file" name="photo" accept="image/*" required>
+
+    <label for="pdf">Télécharger un PDF :</label>
+    <input type="file" name="pdf" accept=".pdf" required>
+
+    <button type="submit">Ajouter le cours</button>
+</form>
+
+{% for message in get_flashed_messages() %}
+<div>{{ message }}</div>
+{% endfor %}
+
+<script>
+// Masque ou affiche la sélection de série en fonction du choix
+document.getElementById('type_page').addEventListener('change', function() {
+    var serieSection = document.getElementById('serie_section');
+    if (this.value === 'universite') {
+        serieSection.style.display = 'none';
+    } else {
+        serieSection.style.display = 'block';
+    }
+});
+</script>
+{% endblock %}
+
